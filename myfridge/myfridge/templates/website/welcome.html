@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block title %}myFridge{% endblock %}
+
+
+{% block content %}
+
+<div class="card text-center">
+  <div class="card-body">
+
+      <h5 class="card-title">Hello!</h5>
+      <br>
+    
+  </div>
+</div>
+
+<div class="card text-center">
+  <h5 class="card-header">My Food items</h5>
+  <div class="card-body">
+    <h5 class="card-title">There are currently {{num_food}} stored in your fridge.</h5>
+    <p class="card-text">Say something!</p>
+    <a href="{% url 'myfood' %}" class="btn btn-outline-primary">View</a>
+  </div>
+</div>
+
+
+
+
+{% endblock %}

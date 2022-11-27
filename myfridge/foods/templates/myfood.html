@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Scholar Classifier{% endblock %}
+
+
+{% block content %}
+
+<div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">Food count: {{num_food}}</h5>
+    </div>
+</div>
+
+
+<div class="card text-center">
+    <h5 class="card-header">Food Items
+    </h5>
+    <div class="card-body">
+        {% for food in foods %}
+        <div class="card text-lg-center">
+            <div class="card-body">
+              <p class="card-text"> {{food.name}} </p>
+              <p class="card-text"> {{food.in_date}} </p>
+
+              <a href="{% url 'delete_item' food.id %}" class="btn btn-outline-danger">Delete</a>
+              
+            </div>
+        </div>
+        {% endfor %}
+</div>
+
+
+
+{% endblock %}
