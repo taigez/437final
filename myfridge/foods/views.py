@@ -19,10 +19,13 @@ def delete_item(request, id):
 @csrf_exempt
 def handle_get(request):
     item = request.GET.get('item', None)
-    new_item = Item(name=item)
+    x = request.GET.get('posx', None)
+    y = request.GET.get('posy', None)
+    new_item = Item(name=item, xpos=x, ypos=y)
     new_item.in_date = timezone.now()
     new_item.save()
 
     #http://127.0.0.1:8000/foods/receive_json/?item=apple
 
     return HttpResponse('OK!')
+

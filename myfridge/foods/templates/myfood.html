@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% block title %}Scholar Classifier{% endblock %}
+{% block title %}myFridge{% endblock %}
 
 
 {% block content %}
@@ -20,6 +20,8 @@
         <div class="card text-lg-center">
             <div class="card-body">
               <p class="card-text"> {{food.name}} </p>
+              <p class="card-text"> {{food.xpos}} </p>
+              <p class="card-text"> {{food.ypos}} </p>
               <p class="card-text"> {{food.in_date}} </p>
 
               <a href="{% url 'delete_item' food.id %}" class="btn btn-outline-danger">Delete</a>
