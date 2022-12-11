@@ -3,6 +3,7 @@ from django.http import JsonResponse , HttpResponse
 from .models import Item
 from django.views.decorators.csrf import csrf_exempt
 from django.utils import timezone
+import json
 
 
 def scan(request):
@@ -46,6 +47,15 @@ def handle_get(request):
     #http://127.0.0.1:8000/foods/receive_json/?item=apple
 
     return HttpResponse('OK!')
+
+@csrf_exempt
+def handle_post(request):
+    if request.method=='POST':
+            received_json_data=json.loads(request.body)
+
+            print(received_json_data)
+            return HttpResponse('it was post request: '+str(received_json_data))
+    return HttpResponse('it was GET request')
 
 
 
